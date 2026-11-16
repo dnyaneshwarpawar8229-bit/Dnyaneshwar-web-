@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Babasaheb</title>
+<style>
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:#020805;
+  color:#00ff80;
+  font-family:monospace;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+main { width:100%; padding:24px; }
+h1 { font-size:27px; }
+#timer {
+  font-size:90px;
+  margin:40px 0;
+  text-shadow:0 0 20px #00ff80;
+}
+.bar {
+  height:12px;
+  background:#173023;
+  border-radius:20px;
+  overflow:hidden;
+}
+#progress {
+  height:100%;
+  width:100%;
+  background:#00ff80;
+}
+#end { display:none; }
+#end h1 { color:#ff3030; font-size:30px; }
+</style>
+</head>
+<body>
+<main>
+  <section id="start">
+    <h1>WAIT FOR THE END</h1>
+    <div id="timer">60</div>
+    <div class="bar">
+      <div id="progress"></div>
+    </div>
+  </section>
+
+  <section id="end">
+    <h1>Babasaheb ke gand main dagdo aanchi bulli</h1>
+  </section>
+</main>
+
+<script>
+let seconds = 60;
+
+let countdown = setInterval(() => {
+  seconds--;
+  document.getElementById("timer").textContent = seconds;
+  document.getElementById("progress").style.width =
+    (seconds / 60 * 100) + "%";
+
+  if (seconds <= 0) {
+    clearInterval(countdown);
+    document.getElementById("start").style.display = "none";
+    document.getElementById("end").style.display = "block";
+  }
+}, 1000);
+</script>
+</body>
+</html>
++0
+
